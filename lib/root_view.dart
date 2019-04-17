@@ -28,9 +28,9 @@ class RootViewState extends State<RootView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_title[_tabIndex]),
-      ),
+      // appBar: AppBar(
+      //   title: Text(_title[_tabIndex]),
+      // ),
       body: IndexedStack(
         children: <Widget>[
           HomeView(),

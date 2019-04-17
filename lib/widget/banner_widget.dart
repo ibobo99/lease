@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:lease/model/banner_list.dart';
+import 'package:lease/model/banner_vo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flustars/flustars.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class BannerWidget extends StatelessWidget {
- final BannerList _bannerList ;
+ final List<BannerVo> _bannerList ;
 
   BannerWidget(this._bannerList);
 
   @override
   Widget build(BuildContext context) {
-    if(_bannerList== null || _bannerList.data==null ||_bannerList.data.length==0){
+    if(_bannerList.length==0){
       return SizedBox();
     }
     return Container(
       color: Colors.white,
       child: CarouselSlider(
-        items: _bannerList.data.map((info) {
+        items: _bannerList.map((info) {
           return Builder(
             builder: (BuildContext context) {
               return Container(

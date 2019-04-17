@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:lease/model/goods_vo.dart';
+import 'package:lease/model/lease_vo.dart';
 import 'package:flustars/flustars.dart';
 import 'package:lease/common/config/my_color.dart';
 import 'package:lease/widget/goods_cover_image.dart';
 
-class NovelGridItem extends StatelessWidget {
-  final GoodsVo novel;
+class LeaseCoverView extends StatelessWidget {
+  final LeaseVo novel;
 
-  NovelGridItem(this.novel);
+  LeaseCoverView(this.novel);
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +27,13 @@ class NovelGridItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    '哪儿',
+                    novel.name,
                     maxLines: 2,
                     style: TextStyle(fontSize: 16, height: 0.9, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '什么',
-                    style: TextStyle(fontSize: 12, color: MyColor.gray),
+                    novel.price.toString(),
+                    style: TextStyle(fontSize: 12, color: MyColor.red),
                   )
                 ],
               ),

@@ -13,7 +13,7 @@ part 'goods_vo.g.dart';
   String name;
 
   @JsonKey(name: 'price')
-  int price;
+  double price;
 
   @JsonKey(name: 'bid')
   String bid;

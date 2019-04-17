@@ -10,7 +10,7 @@ GoodsVo _$GoodsVoFromJson(Map<String, dynamic> json) {
   return GoodsVo(
       json['gid'] as String,
       json['name'] as String,
-      json['price'] as int,
+      (json['price'] as num)?.toDouble(),
       json['bid'] as String,
       json['content'] as String,
       json['status'] as int,

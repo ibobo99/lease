@@ -31,6 +31,7 @@ dependencies:
   common_utils: 1.1.1 
   flustars: 0.2.5
   cached_network_image: 0.7.0
+  flutter_widget_from_html: 0.1.5
   font_social_flutter:
     path: lib/font_social_flutter/
 
