@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: Colors.white,
         dividerColor: Color(0xffeeeeee),
-        scaffoldBackgroundColor: MyColor.paper,
+        scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(body1: TextStyle(color: MyColor.darkGray)),
         //primarySwatch:Colors.white12
       ),

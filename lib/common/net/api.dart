@@ -11,7 +11,7 @@ import 'package:lease/common/net/result_data.dart';
 
 ///http请求管理类，可单独抽取出来
 class Api {
-  static String _baseUrl;
+  static String _baseUrl = 'http://59.110.234.118:9200/';
   static const CONTENT_TYPE_JSON = "application/json";
   static const CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
   static Map optionParams = {
@@ -29,7 +29,7 @@ class Api {
   }
 
   static post(url,param) async{
-    return await request(_baseUrl+url, param, {"Accept": 'application/vnd.github.VERSION.full+json'}, new Options(method: 'POST'));
+    return await request(_baseUrl+url, param, null, new Options(method: 'POST',contentType:ContentType("application","x-www-form-urlencoded")));
   }
 
   static delete(url,param) async{
