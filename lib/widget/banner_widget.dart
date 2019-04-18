@@ -12,7 +12,7 @@ class BannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(_bannerList.length==0){
-      return SizedBox();
+      return SizedBox(height:ScreenUtil.getInstance().screenWidth/2,);
     }
     return Container(
       color: Colors.white,

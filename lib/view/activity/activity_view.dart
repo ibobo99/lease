@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lease/model/activity_vo.dart';
 import 'package:lease/common/net/api.dart';
 import 'package:lease/common/net/result_data.dart';
-import 'package:lease/widget/activity_cover_view.dart';
+import 'package:lease/widget/activity_cover_widget.dart';
 import 'activity_section_view.dart';
 
 class ActivityView extends StatefulWidget {
@@ -56,7 +56,7 @@ class _ActivityViewState extends State<ActivityView> {
       _activityList= [];
       d.data['data']['data'].forEach(
         (novel)=>{
-           _activityList.add(ActivityCoverView(ActivityVo.fromJson(novel)))
+           _activityList.add(ActivityCoverWidget(ActivityVo.fromJson(novel)))
         }
       );
       if(_activityList.length==0){

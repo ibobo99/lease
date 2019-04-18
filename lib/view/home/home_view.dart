@@ -6,9 +6,9 @@ import 'package:lease/model/business_vo.dart';
 import 'package:lease/common/net/api.dart';
 import 'package:lease/common/net/result_data.dart';
 import 'package:lease/widget/banner_widget.dart';
-import 'package:lease/widget/goods_cover_view.dart';
-import 'package:lease/widget/lease_cover_view.dart';
-import 'package:lease/widget/business_cover_view.dart';
+import 'package:lease/widget/goods_cover_widget.dart';
+import 'package:lease/widget/lease_cover_widget.dart';
+import 'package:lease/widget/business_cover_widget.dart';
 
 import 'home_section_view.dart';
 
@@ -93,15 +93,6 @@ class _HomeViewState extends State<HomeView> {
                         Container(
                           child: Column(
                             children: <Widget>[
-                              Image.asset("images/nav3.png"),
-                              SizedBox(height: 8.0),
-                              Text('商城')
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: <Widget>[
                               Image.asset("images/nav4.png"),
                               SizedBox(height: 8.0),
                               Text('分享')
@@ -115,7 +106,7 @@ class _HomeViewState extends State<HomeView> {
                   height: 8.0,
                 ),
                 //商品头部
-                HomeSectionView('租赁'),
+                HomeSectionView('租赁',1),
                 //商品列表
                 Container(
                   padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
@@ -131,13 +122,13 @@ class _HomeViewState extends State<HomeView> {
                   height: 8.0,
                 ),
                 //商品头部
-                HomeSectionView('商铺'),
+                HomeSectionView('加盟店',2),
                 //商品列表
                 Container(
                   padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
                   child:Wrap(
                           spacing: 15,
-                          runSpacing: 20,
+                          runSpacing: 8,
                           children:_businessList
                         )
                      
@@ -147,7 +138,7 @@ class _HomeViewState extends State<HomeView> {
                   height: 8.0,
                 ),
                 //商品头部
-                HomeSectionView('商品'),
+                HomeSectionView('商品',3),
                 //商品列表
                 Container(
                   padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
@@ -163,7 +154,7 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void _init_banner() async {
-    ResultData d = await Api.post('/banner/listByCondition', {'module': '1'});
+    ResultData d = await Api.post('/banner/listByCondition', {});
     setState(() {
       _bannerList = [];
       d.data['data'].forEach((novel) {
@@ -178,7 +169,7 @@ class _HomeViewState extends State<HomeView> {
       _leaseList= [];
       d.data['data']['data'].forEach(
         (novel)=>{
-           _leaseList.add(LeaseCoverView(LeaseVo.fromJson(novel)))
+           _leaseList.add(LeaseCoverWidget(LeaseVo.fromJson(novel)))
         }
       );
       if(_leaseList.length==0){
@@ -193,7 +184,7 @@ class _HomeViewState extends State<HomeView> {
       _businessList = [];
       d.data['data']['data'].forEach(
         (novel)=>{
-           _businessList.add(BusinessCoverView(BusinessVo.fromJson(novel)))
+           _businessList.add(BusinessCoverWidget(BusinessVo.fromJson(novel)))
         }
       );
       if(_businessList.length==0){
@@ -208,7 +199,7 @@ class _HomeViewState extends State<HomeView> {
       _goodsList= [];
       d.data['data']['data'].forEach(
         (novel)=>{
-           _goodsList.add(GoodsCoverView(GoodsVo.fromJson(novel)))
+           _goodsList.add(GoodsCoverWidget(GoodsVo.fromJson(novel)))
         }
       );
       if(_goodsList.length==0){

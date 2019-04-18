@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lease/common/config/my_color.dart';
+import 'package:lease/common/routers/app_navigator.dart';
+import 'package:lease/view/home/lease_list_view.dart';
+import 'package:lease/view/home/business_list_view.dart';
 
 class HomeSectionView extends StatelessWidget {
   final String title;
-  HomeSectionView(this.title);
+  final int type;
+  HomeSectionView(this.title, this.type);
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +28,25 @@ class HomeSectionView extends StatelessWidget {
               ),
             ],
           )),
-          Text(
-            '更多》',
-            style: TextStyle(
-              fontSize: 16,
+          GestureDetector(
+            onTap: () {
+              switch (type) {
+                case 1:
+                  AppNavigator.push(context,LeaseListView());
+                  break;
+                case 2:
+                  AppNavigator.push(context, BusinessListView());
+                  break;
+              }
+              //AppNavigator.push(context, LeaseListView())
+            },
+            child: Text(
+              '更多》',
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
-          ),
+          )
         ],
       ),
     );

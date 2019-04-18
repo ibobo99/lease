@@ -4,10 +4,10 @@ import 'package:lease/widget/goods_cover_image.dart';
 import 'package:flustars/flustars.dart';
 import 'package:lease/common/config/my_color.dart';
 
-class GoodsCoverView extends StatelessWidget {
+class GoodsCoverWidget extends StatelessWidget {
   final GoodsVo novel;
 
-  GoodsCoverView(this.novel);
+  GoodsCoverWidget(this.novel);
 
   @override
   Widget build(BuildContext context) {

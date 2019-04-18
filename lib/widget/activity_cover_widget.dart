@@ -4,10 +4,10 @@ import 'package:lease/common/config/my_color.dart';
 import 'package:lease/widget/goods_cover_image.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
-class ActivityCoverView extends StatelessWidget {
+class ActivityCoverWidget extends StatelessWidget {
   final ActivityVo novel;
 
-  ActivityCoverView(this.novel);
+  ActivityCoverWidget(this.novel);
 
   @override
   Widget build(BuildContext context) {
